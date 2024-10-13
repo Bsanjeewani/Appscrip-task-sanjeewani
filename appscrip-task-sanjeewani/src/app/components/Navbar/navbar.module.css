@@ -4,6 +4,11 @@
     padding: 0 20px;
 }
 
+
+.productGrid {
+    background-color: pink
+}
+
 .topBar {
     background-color: black;
     color: white;

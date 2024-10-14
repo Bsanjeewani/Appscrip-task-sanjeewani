@@ -81,7 +81,8 @@
 
 .filtersection {
     display: flex;
-    gap: 4rem;
+    justify-content: space-between;
+    gap: 1rem;
 }
 
 .arrows {
@@ -214,8 +215,5 @@
         /* Adjust for mobile */
     }
 
-    .filtersection {
 
-        gap: 1rem;
-    }
 }

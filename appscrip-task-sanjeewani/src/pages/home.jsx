@@ -109,7 +109,7 @@ export default function Home({ products }) {
         <div className={styles.line}></div>
         <div className={styles.mainContainer}>
           <div className={styles.filtersection}>
-            <div> 3425 Items</div>
+            <div className={styles.items}> 3425 Items</div>
             <div
               className={styles.filterToggleButton}
               onClick={() => setShowFilters(!showFilters)}

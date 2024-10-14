@@ -37,13 +37,17 @@ export default function ProductDetails({ product }) {
           />
           <div className={styles.productInfo}>
             <p>
-              <strong>Description:</strong> {product.description}
+              <strong>Description</strong>
+              <div>{product.description}</div>
             </p>
             <p>
-              <strong>Category:</strong> {product.category}
+              <strong>Category</strong>
+              <div> {product.category}</div>
             </p>
             <p>
-              <strong>Price:</strong> ${product.price}
+              <strong>Price</strong>
+
+              <div>${product.price}</div>
             </p>
             <button className={styles.addToCart}>Add to Cart</button>
           </div>

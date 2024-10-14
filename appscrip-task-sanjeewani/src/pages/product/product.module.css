@@ -1,5 +1,5 @@
 .container {
-    padding: 20px;
+    padding: 40px;
 }
 
 .productDetail {
@@ -22,6 +22,7 @@
     padding: 10px 20px;
     border: none;
     cursor: pointer;
+    margin-top: 4rem;
 }
 
 .backButton {

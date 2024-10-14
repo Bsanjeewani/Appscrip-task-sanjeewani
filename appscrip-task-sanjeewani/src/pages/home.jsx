@@ -3,6 +3,7 @@ import Head from "next/head";
 import Navbar from "../app/components/Navbar/Navbar";
 import styles from "./home.module.css";
 import { Heart } from "../app/images/navbar";
+import Footer from "../app/components/Footer/Footer";
 
 export default function Home({ products }) {
   const [filteredProducts, setFilteredProducts] = useState(products);
@@ -104,14 +105,31 @@ export default function Home({ products }) {
         <h1>Discover Our Products</h1>
 
         {/* Button to toggle filter visibility only on mobile/tablet */}
-        {isMobileView && (
+        {/* {isMobileView && ( */}
+        <div className={styles.mainContainer}>
           <button
             className={styles.filterToggleButton}
             onClick={() => setShowFilters(!showFilters)}
           >
             {showFilters ? "Hide Filters" : "Show Filters"}
           </button>
-        )}
+          {/* )} */}
+
+          <div>
+            <select
+              className={styles.sortContainer}
+              onChange={handleSort}
+              value={sortOrder}
+            >
+              <option value="">Sort By</option>
+              <option value="recommended">Recommended</option>{" "}
+              {/* Added Recommended option */}
+              <option value="lowToHigh">Price: Low to High</option>
+              <option value="highToLow">Price: High to Low</option>
+              <option value="alphabetical">Alphabetical</option>
+            </select>
+          </div>
+        </div>
 
         <div className={styles.mainContent}>
           {/* Sidebar for filters */}
@@ -154,17 +172,6 @@ export default function Home({ products }) {
               showFilters && !isMobileView ? "" : styles.fullWidth
             }`}
           >
-            <div className={styles.sortContainer}>
-              <select onChange={handleSort} value={sortOrder}>
-                <option value="">Sort By</option>
-                <option value="recommended">Recommended</option>{" "}
-                {/* Added Recommended option */}
-                <option value="lowToHigh">Price: Low to High</option>
-                <option value="highToLow">Price: High to Low</option>
-                <option value="alphabetical">Alphabetical</option>
-              </select>
-            </div>
-
             <div className={styles.grid}>
               {filteredProducts.map((product) => (
                 <div className={styles.productCard} key={product.id}>
@@ -191,7 +198,9 @@ export default function Home({ products }) {
           </div>
         </div>
 
-        <footer>footer</footer>
+        <footer>
+          <Footer />
+        </footer>
       </div>
     </>
   );

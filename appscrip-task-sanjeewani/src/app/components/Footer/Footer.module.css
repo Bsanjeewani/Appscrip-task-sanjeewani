@@ -1,0 +1,80 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.footer-column {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.footer h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.footer input {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  width: 60%;
+  border-radius: 4px 0 0 4px;
+}
+
+.footer button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #171717;
+  /* Foreground replacement */
+  color: #ffffff;
+  /* Background replacement */
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Hover states */
+.footer button:hover {
+  background-color: #383838;
+}
+
+.footer input:hover {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .footer button {
+    background-color: #ededed;
+    color: #0a0a0a;
+  }
+
+  .footer button:hover {
+    background-color: #f2f2f2;
+  }
+
+  .footer input {
+    border-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .footer input:hover {
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+}

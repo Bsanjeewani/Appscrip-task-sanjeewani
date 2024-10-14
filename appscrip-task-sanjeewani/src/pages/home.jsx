@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
+import Link from "next/link";
+
 import Navbar from "../app/components/Navbar/Navbar";
 import styles from "./home.module.css";
 import { Heart } from "../app/images/navbar";
@@ -106,7 +108,7 @@ export default function Home({ products }) {
             {showFilters ? "Hide Filters" : "Show Filters"}
           </button>
           {/* )} */}
-
+          {/* sort */}
           <div>
             <select
               className={styles.sortContainer}
@@ -132,13 +134,19 @@ export default function Home({ products }) {
           >
             <div className={styles.filterButtons}>
               <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-                IDEAL FOR {isDropdownOpen ? "▲" : "▼"}
+                <div> IDEAL FOR </div>
+                <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
               </h3>
-              <button onClick={handleSelectAll}> All</button>
+              <div className={styles.all} onClick={handleSelectAll}>
+                {" "}
+                All
+              </div>
               {/* Dropdown content */}
               {isDropdownOpen && (
                 <div>
-                  <button onClick={handleUnselectAll}>Unselect All</button>
+                  <div className={styles.unselect} onClick={handleUnselectAll}>
+                    Unselect All
+                  </div>
 
                   {/* Render checkboxes for each category */}
                   {categories.map((category) => (
@@ -156,6 +164,100 @@ export default function Home({ products }) {
                 </div>
               )}
             </div>
+            {/* 2 */}
+
+            <div className={styles.line}></div>
+            <div className={styles.filterButtons}>
+              <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                <div> OCCASION </div>
+                <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+              </h3>
+              <div className={styles.all} onClick={handleSelectAll}>
+                {" "}
+                All
+              </div>
+            </div>
+            <div className={styles.line}></div>
+
+            {/* 3 */}
+            <div className={styles.filterButtons}>
+              <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                <div> WORK </div>
+                <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+              </h3>
+              <div className={styles.all} onClick={handleSelectAll}>
+                {" "}
+                All
+              </div>
+            </div>
+            <div className={styles.line}></div>
+
+            {/* 4 */}
+            <div className={styles.filterButtons}>
+              <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                <div> FABRIC </div>
+                <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+              </h3>
+              <div className={styles.all} onClick={handleSelectAll}>
+                {" "}
+                All
+              </div>
+            </div>
+
+            {/* 5 */}
+            <div className={styles.line}></div>
+
+            <div className={styles.filterButtons}>
+              <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                <div> SEGMENT </div>
+                <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+              </h3>
+              <div className={styles.all} onClick={handleSelectAll}>
+                {" "}
+                All
+              </div>
+            </div>
+            {/* 6 */}
+            <div className={styles.line}></div>
+
+            <div className={styles.filterButtons}>
+              <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                <div> SUITABLE FOR </div>
+                <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+              </h3>
+              <div className={styles.all} onClick={handleSelectAll}>
+                {" "}
+                All
+              </div>
+            </div>
+
+            {/* 7 */}
+            <div className={styles.line}></div>
+
+            <div className={styles.filterButtons}>
+              <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                <div> RAW MATERIALS </div>
+                <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+              </h3>
+              <div className={styles.all} onClick={handleSelectAll}>
+                {" "}
+                All
+              </div>
+            </div>
+
+            <div className={styles.line}></div>
+
+            {/* 8 */}
+            <div className={styles.filterButtons}>
+              <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                <div> PATTERN </div>
+                <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+              </h3>
+              <div className={styles.all} onClick={handleSelectAll}>
+                {" "}
+                All
+              </div>
+            </div>
           </aside>
 
           {/* Main product grid */}
@@ -167,13 +269,15 @@ export default function Home({ products }) {
             <div className={styles.grid}>
               {filteredProducts.map((product) => (
                 <div className={styles.productCard} key={product.id}>
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    width={300}
-                    height={300}
-                    objectFit="cover"
-                  />
+                  <Link href={`/product/${product.id}`}>
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      width={300}
+                      height={300}
+                      objectFit="cover"
+                    />
+                  </Link>
                   <h2>{product.title}</h2>
                   <p>{product.description.substring(0, 100)}...</p>
                   <p className={styles.price}>${product.price}</p>
@@ -181,8 +285,14 @@ export default function Home({ products }) {
                     Sign in or Create an account to see pricing.
                   </p>
 
-                  <span>
-                    <img src={Heart} alt="Favorite" width={24} height={24} />
+                  <span className={styles.icon}>
+                    <img
+                      src={Heart}
+                      alt="Favorite"
+                      width={24}
+                      height={24}
+                      objectFit="cover"
+                    />
                   </span>
                 </div>
               ))}

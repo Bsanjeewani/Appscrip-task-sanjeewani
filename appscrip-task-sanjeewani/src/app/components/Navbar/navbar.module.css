@@ -5,7 +5,7 @@
 }
 
 .container {
-    max-width: 90vw;
+    max-width: 70vw;
     margin: 0 auto;
     padding: 0 0px;
 }
@@ -35,7 +35,6 @@
     gap: 1rem;
 }
 
-
 .navbar {
     background-color: white;
     padding: 0px 0;
@@ -50,14 +49,11 @@
     padding-left: 4rem;
     padding-right: 4rem;
     justify-content: space-between;
-
 }
 
 .logo {
     display: flex;
     justify-content: center;
-
-
     margin-left: 12rem;
 }
 
@@ -67,13 +63,11 @@
     gap: 30px;
     flex: 1;
     justify-content: center;
-
 }
 
 .navMenu li {
     font-weight: bold;
     cursor: pointer;
-
 }
 
 .navIcons {
@@ -81,14 +75,11 @@
     gap: 15px;
     align-items: center;
     justify-content: flex-end;
-
 }
 
 /* Icons */
 .icon {
     cursor: pointer;
-
-
 }
 
 /* Hamburger menu */
@@ -135,19 +126,13 @@
     }
 
     .logoContainer {
-
         padding-left: 0rem;
         padding-right: 0rem;
-
-
     }
-
 
     .logo {
-
         margin-left: 0rem;
     }
-
 
     .active {
         transform: translateX(0);

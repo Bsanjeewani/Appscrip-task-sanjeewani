@@ -106,13 +106,18 @@ export default function Home({ products }) {
         </div>
         {/* Button to toggle filter visibility only on mobile/tablet */}
         {/* {isMobileView && ( */}
+        <div className={styles.line}></div>
         <div className={styles.mainContainer}>
-          <button
-            className={styles.filterToggleButton}
-            onClick={() => setShowFilters(!showFilters)}
-          >
-            {showFilters ? "Hide Filters" : "Show Filters"}
-          </button>
+          <div className={styles.filtersection}>
+            <div> 3425 Items</div>
+            <div
+              className={styles.filterToggleButton}
+              onClick={() => setShowFilters(!showFilters)}
+            >
+              {showFilters ? "Hide Filters" : "Show Filters"}
+            </div>
+          </div>
+
           {/* )} */}
           {/* sort */}
           <div>
@@ -130,6 +135,7 @@ export default function Home({ products }) {
             </select>
           </div>
         </div>
+        <div className={styles.line}></div>
 
         <div className={styles.mainContent}>
           {/* Sidebar for filters */}
@@ -142,7 +148,9 @@ export default function Home({ products }) {
               <div className={styles.filterButtons}>
                 <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
                   <div> IDEAL FOR </div>
-                  <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+                  <div className={styles.arrows}>
+                    {isDropdownOpen ? "ᐱ" : "ᐯ"}
+                  </div>
                 </h3>
                 <div className={styles.all} onClick={handleSelectAll}>
                   {" "}
@@ -178,9 +186,11 @@ export default function Home({ products }) {
 
               <div className={styles.line}></div>
               <div className={styles.filterButtons}>
-                <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                <h3>
                   <div> OCCASION </div>
-                  <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+                  <div className={styles.arrows}>
+                    {isDropdownOpen ? "ᐱ" : "ᐯ"}
+                  </div>
                 </h3>
                 <div className={styles.all} onClick={handleSelectAll}>
                   {" "}
@@ -191,9 +201,11 @@ export default function Home({ products }) {
 
               {/* 3 */}
               <div className={styles.filterButtons}>
-                <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                <h3>
                   <div> WORK </div>
-                  <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+                  <div className={styles.arrows}>
+                    {isDropdownOpen ? "ᐱ" : "ᐯ"}
+                  </div>
                 </h3>
                 <div className={styles.all} onClick={handleSelectAll}>
                   {" "}
@@ -204,9 +216,11 @@ export default function Home({ products }) {
 
               {/* 4 */}
               <div className={styles.filterButtons}>
-                <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                <h3>
                   <div> FABRIC </div>
-                  <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+                  <div className={styles.arrows}>
+                    {isDropdownOpen ? "ᐱ" : "ᐯ"}
+                  </div>
                 </h3>
                 <div className={styles.all} onClick={handleSelectAll}>
                   {" "}
@@ -218,9 +232,11 @@ export default function Home({ products }) {
               <div className={styles.line}></div>
 
               <div className={styles.filterButtons}>
-                <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                <h3>
                   <div> SEGMENT </div>
-                  <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+                  <div className={styles.arrows}>
+                    {isDropdownOpen ? "ᐱ" : "ᐯ"}
+                  </div>
                 </h3>
                 <div className={styles.all} onClick={handleSelectAll}>
                   {" "}
@@ -231,9 +247,11 @@ export default function Home({ products }) {
               <div className={styles.line}></div>
 
               <div className={styles.filterButtons}>
-                <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                <h3>
                   <div> SUITABLE FOR </div>
-                  <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+                  <div className={styles.arrows}>
+                    {isDropdownOpen ? "ᐱ" : "ᐯ"}
+                  </div>
                 </h3>
                 <div className={styles.all} onClick={handleSelectAll}>
                   {" "}
@@ -245,9 +263,11 @@ export default function Home({ products }) {
               <div className={styles.line}></div>
 
               <div className={styles.filterButtons}>
-                <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                <h3>
                   <div> RAW MATERIALS </div>
-                  <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+                  <div className={styles.arrows}>
+                    {isDropdownOpen ? "ᐱ" : "ᐯ"}
+                  </div>
                 </h3>
                 <div className={styles.all} onClick={handleSelectAll}>
                   {" "}
@@ -259,10 +279,11 @@ export default function Home({ products }) {
 
               {/* 8 */}
               <div className={styles.filterButtons}>
-                <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-                  <div> PATTERN </div>
-                  <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
-                </h3>
+                <div> PATTERN </div>
+                <div className={styles.arrows}>
+                  {isDropdownOpen ? "ᐱ" : "ᐯ"}
+                </div>
+
                 <div className={styles.all} onClick={handleSelectAll}>
                   {" "}
                   All
@@ -292,18 +313,8 @@ export default function Home({ products }) {
                   <p>{product.description.substring(0, 100)}...</p>
                   <p className={styles.price}>${product.price}</p>
                   <p className={styles.signInMessage}>
-                    Sign in or Create an account to see pricing.
+                    Sign in or Create an account to see pricing ♡
                   </p>
-
-                  <span className={styles.icon}>
-                    <img
-                      src={Heart}
-                      alt="Favorite"
-                      width={24}
-                      height={24}
-                      objectFit="cover"
-                    />
-                  </span>
                 </div>
               ))}
             </div>

@@ -7,13 +7,12 @@ import Footer from "../app/components/Footer/Footer";
 
 export default function Home({ products }) {
   const [filteredProducts, setFilteredProducts] = useState(products);
-  const [sortOrder, setSortOrder] = useState(""); // Sorting criteria
-  const [showFilters, setShowFilters] = useState(false); // State to toggle filters visibility
-  const [selectedCategories, setSelectedCategories] = useState([]); // Track selected categories
-  const [isDropdownOpen, setIsDropdownOpen] = useState(true); // State for toggling dropdown
-  const [isMobileView, setIsMobileView] = useState(false); // To check mobile view
+  const [sortOrder, setSortOrder] = useState("");
+  const [showFilters, setShowFilters] = useState(false);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(true);
+  const [isMobileView, setIsMobileView] = useState(false);
 
-  // All categories for filtering
   const categories = [
     "men's clothing",
     "women's clothing",
@@ -21,7 +20,6 @@ export default function Home({ products }) {
     "electronics",
   ];
 
-  // Handle sorting
   const handleSort = (e) => {
     const order = e.target.value;
     setSortOrder(order);
@@ -35,14 +33,12 @@ export default function Home({ products }) {
     } else if (order === "alphabetical") {
       sortedProducts.sort((a, b) => a.title.localeCompare(b.title));
     } else if (order === "recommended") {
-      // Show products in the original order as per API response
       sortedProducts = [...products];
     }
 
     setFilteredProducts(sortedProducts);
   };
 
-  // Handle category selection
   const handleCategoryChange = (category) => {
     const newSelectedCategories = selectedCategories.includes(category)
       ? selectedCategories.filter((item) => item !== category)
@@ -50,18 +46,16 @@ export default function Home({ products }) {
 
     setSelectedCategories(newSelectedCategories);
 
-    // Filter products based on the selected categories
     if (newSelectedCategories.length > 0) {
       const filtered = products.filter((product) =>
         newSelectedCategories.includes(product.category)
       );
       setFilteredProducts(filtered);
     } else {
-      setFilteredProducts(products); // Show all if no category is selected
+      setFilteredProducts(products);
     }
   };
 
-  // Select All categories
   const handleSelectAll = () => {
     setSelectedCategories(categories);
     setFilteredProducts(
@@ -69,21 +63,19 @@ export default function Home({ products }) {
     );
   };
 
-  // Unselect All categories
   const handleUnselectAll = () => {
     setSelectedCategories([]);
-    setFilteredProducts(products); // Show all products when unselected
+    setFilteredProducts(products);
   };
 
-  // Effect to detect screen width and handle mobile/tablet views
   useEffect(() => {
     const handleResize = () => {
       setIsMobileView(window.innerWidth <= 1024);
-      setShowFilters(window.innerWidth > 1024); // Show filters by default on desktop
+      setShowFilters(window.innerWidth > 1024);
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize(); // Run on initial load
+    handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);

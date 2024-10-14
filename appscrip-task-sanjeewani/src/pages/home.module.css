@@ -9,13 +9,21 @@
 }
 
 .sidebar {
-
     position: relative;
     transition: transform 0.3s ease;
     transform: translateX(-100%);
-    /* Hidden by default */
     background-color: #f9f9f9;
+}
 
+.herocontainer {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.herocontainer p {
+    font-size: 1rem;
+    color: grey;
 }
 
 .sidebar.show {
@@ -56,6 +64,7 @@
     cursor: pointer;
     width: 9rem;
     border-radius: 1rem;
+
 }
 
 .sortContainer {
@@ -166,6 +175,17 @@
         left: 0;
         height: 100vh;
         z-index: 1000;
+    }
+
+    .mainContainer {
+        display: block;
+        text-align: end;
+        padding-left: 0rem;
+    }
+
+    .sortContainer {
+        margin-right: 0rem;
+        margin-top: 10px;
     }
 
     .productGrid {

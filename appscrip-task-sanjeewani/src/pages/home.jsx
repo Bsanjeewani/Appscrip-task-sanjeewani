@@ -96,8 +96,14 @@ export default function Home({ products }) {
       </Head>
 
       <div className={styles.container}>
-        <h1>Discover Our Products</h1>
-
+        <div className={styles.herocontainer}>
+          <h1>Discover Our Products</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur. Amet est posuere rhoncus
+            scelerisque. Dolor integer scelerisque nibh amet mi ut elementum
+            dolor.
+          </p>
+        </div>
         {/* Button to toggle filter visibility only on mobile/tablet */}
         {/* {isMobileView && ( */}
         <div className={styles.mainContainer}>
@@ -127,139 +133,143 @@ export default function Home({ products }) {
 
         <div className={styles.mainContent}>
           {/* Sidebar for filters */}
-          <aside
-            className={`${styles.sidebar} ${
-              showFilters ? styles.show : styles.hide
-            }`}
-          >
-            <div className={styles.filterButtons}>
-              <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-                <div> IDEAL FOR </div>
-                <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
-              </h3>
-              <div className={styles.all} onClick={handleSelectAll}>
-                {" "}
-                All
-              </div>
-              {/* Dropdown content */}
-              {isDropdownOpen && (
-                <div>
-                  <div className={styles.unselect} onClick={handleUnselectAll}>
-                    Unselect All
-                  </div>
-
-                  {/* Render checkboxes for each category */}
-                  {categories.map((category) => (
-                    <div key={category}>
-                      <label>
-                        <input
-                          type="checkbox"
-                          checked={selectedCategories.includes(category)}
-                          onChange={() => handleCategoryChange(category)}
-                        />
-                        {category.charAt(0).toUpperCase() + category.slice(1)}
-                      </label>
-                    </div>
-                  ))}
+          <div className={styles.sidebarContent}>
+            <aside
+              className={`${styles.sidebar} ${
+                showFilters ? styles.show : styles.hide
+              }`}
+            >
+              <div className={styles.filterButtons}>
+                <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                  <div> IDEAL FOR </div>
+                  <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+                </h3>
+                <div className={styles.all} onClick={handleSelectAll}>
+                  {" "}
+                  All
                 </div>
-              )}
-            </div>
-            {/* 2 */}
+                {/* Dropdown content */}
+                {isDropdownOpen && (
+                  <div>
+                    <div
+                      className={styles.unselect}
+                      onClick={handleUnselectAll}
+                    >
+                      Unselect All
+                    </div>
 
-            <div className={styles.line}></div>
-            <div className={styles.filterButtons}>
-              <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-                <div> OCCASION </div>
-                <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
-              </h3>
-              <div className={styles.all} onClick={handleSelectAll}>
-                {" "}
-                All
+                    {/* Render checkboxes for each category */}
+                    {categories.map((category) => (
+                      <div key={category}>
+                        <label>
+                          <input
+                            type="checkbox"
+                            checked={selectedCategories.includes(category)}
+                            onChange={() => handleCategoryChange(category)}
+                          />
+                          {category.charAt(0).toUpperCase() + category.slice(1)}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-            </div>
-            <div className={styles.line}></div>
+              {/* 2 */}
 
-            {/* 3 */}
-            <div className={styles.filterButtons}>
-              <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-                <div> WORK </div>
-                <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
-              </h3>
-              <div className={styles.all} onClick={handleSelectAll}>
-                {" "}
-                All
+              <div className={styles.line}></div>
+              <div className={styles.filterButtons}>
+                <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                  <div> OCCASION </div>
+                  <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+                </h3>
+                <div className={styles.all} onClick={handleSelectAll}>
+                  {" "}
+                  All
+                </div>
               </div>
-            </div>
-            <div className={styles.line}></div>
+              <div className={styles.line}></div>
 
-            {/* 4 */}
-            <div className={styles.filterButtons}>
-              <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-                <div> FABRIC </div>
-                <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
-              </h3>
-              <div className={styles.all} onClick={handleSelectAll}>
-                {" "}
-                All
+              {/* 3 */}
+              <div className={styles.filterButtons}>
+                <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                  <div> WORK </div>
+                  <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+                </h3>
+                <div className={styles.all} onClick={handleSelectAll}>
+                  {" "}
+                  All
+                </div>
               </div>
-            </div>
+              <div className={styles.line}></div>
 
-            {/* 5 */}
-            <div className={styles.line}></div>
-
-            <div className={styles.filterButtons}>
-              <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-                <div> SEGMENT </div>
-                <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
-              </h3>
-              <div className={styles.all} onClick={handleSelectAll}>
-                {" "}
-                All
+              {/* 4 */}
+              <div className={styles.filterButtons}>
+                <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                  <div> FABRIC </div>
+                  <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+                </h3>
+                <div className={styles.all} onClick={handleSelectAll}>
+                  {" "}
+                  All
+                </div>
               </div>
-            </div>
-            {/* 6 */}
-            <div className={styles.line}></div>
 
-            <div className={styles.filterButtons}>
-              <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-                <div> SUITABLE FOR </div>
-                <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
-              </h3>
-              <div className={styles.all} onClick={handleSelectAll}>
-                {" "}
-                All
+              {/* 5 */}
+              <div className={styles.line}></div>
+
+              <div className={styles.filterButtons}>
+                <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                  <div> SEGMENT </div>
+                  <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+                </h3>
+                <div className={styles.all} onClick={handleSelectAll}>
+                  {" "}
+                  All
+                </div>
               </div>
-            </div>
+              {/* 6 */}
+              <div className={styles.line}></div>
 
-            {/* 7 */}
-            <div className={styles.line}></div>
-
-            <div className={styles.filterButtons}>
-              <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-                <div> RAW MATERIALS </div>
-                <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
-              </h3>
-              <div className={styles.all} onClick={handleSelectAll}>
-                {" "}
-                All
+              <div className={styles.filterButtons}>
+                <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                  <div> SUITABLE FOR </div>
+                  <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+                </h3>
+                <div className={styles.all} onClick={handleSelectAll}>
+                  {" "}
+                  All
+                </div>
               </div>
-            </div>
 
-            <div className={styles.line}></div>
+              {/* 7 */}
+              <div className={styles.line}></div>
 
-            {/* 8 */}
-            <div className={styles.filterButtons}>
-              <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-                <div> PATTERN </div>
-                <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
-              </h3>
-              <div className={styles.all} onClick={handleSelectAll}>
-                {" "}
-                All
+              <div className={styles.filterButtons}>
+                <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                  <div> RAW MATERIALS </div>
+                  <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+                </h3>
+                <div className={styles.all} onClick={handleSelectAll}>
+                  {" "}
+                  All
+                </div>
               </div>
-            </div>
-          </aside>
 
+              <div className={styles.line}></div>
+
+              {/* 8 */}
+              <div className={styles.filterButtons}>
+                <h3 onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                  <div> PATTERN </div>
+                  <div>{isDropdownOpen ? "ᐱ" : "ᐯ"}</div>
+                </h3>
+                <div className={styles.all} onClick={handleSelectAll}>
+                  {" "}
+                  All
+                </div>
+              </div>
+            </aside>
+          </div>
           {/* Main product grid */}
           <div
             className={`${styles.productGrid} ${

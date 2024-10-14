@@ -5,9 +5,9 @@
 }
 
 .container {
-    /* max-width: 100vw; */
-    /* margin: 0 auto; */
-    padding: 0 20px;
+    max-width: 90vw;
+    margin: 0 auto;
+    padding: 0 0px;
 }
 
 
@@ -47,11 +47,19 @@
 .logoContainer {
     display: flex;
     align-items: center;
+    padding-left: 4rem;
+    padding-right: 4rem;
     justify-content: space-between;
-    width: 90vw;
 
 }
 
+.logo {
+    display: flex;
+    justify-content: center;
+
+
+    margin-left: 12rem;
+}
 
 .navMenu {
     display: flex;
@@ -72,11 +80,15 @@
     display: flex;
     gap: 15px;
     align-items: center;
+    justify-content: flex-end;
+
 }
 
 /* Icons */
 .icon {
     cursor: pointer;
+
+
 }
 
 /* Hamburger menu */
@@ -121,6 +133,21 @@
         transition: transform 0.3s ease;
         transform: translateX(100%);
     }
+
+    .logoContainer {
+
+        padding-left: 0rem;
+        padding-right: 0rem;
+
+
+    }
+
+
+    .logo {
+
+        margin-left: 0rem;
+    }
+
 
     .active {
         transform: translateX(0);
